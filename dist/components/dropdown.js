@@ -70,5 +70,4 @@ function CustomDropdown(_ref) {
     className: "dropdown-option"
   }, option.label)))));
 }
-var _default = CustomDropdown;
-exports.default = _default;
+var _default = exports.default = CustomDropdown;
