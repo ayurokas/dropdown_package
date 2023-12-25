@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../components/dropdown.css';
 
 function CustomDropdown({ options, onChange, placeholder }) {
@@ -18,20 +18,20 @@ function CustomDropdown({ options, onChange, placeholder }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const toggleDropdown = useCallback(() => {
-    setIsOpen(prevIsOpen => !prevIsOpen);
-  }, []);
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
-  const handleOptionClick = useCallback((option) => {
+  const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
     setSearchTerm('');
     if (onChange) {
       onChange(option);
     }
-  }, [onChange]);
+  };
 
-  const filterOptions = useCallback(() => {
+  const filterOptions = () => {
     if (!searchTerm) {
       return options;
     }
@@ -39,7 +39,7 @@ function CustomDropdown({ options, onChange, placeholder }) {
     return options.filter((option) =>
       option.label.toLowerCase().startsWith(searchTerm.toLowerCase())
     );
-  }, [options, searchTerm]);
+  };
 
   const filteredOptions = filterOptions();
 
