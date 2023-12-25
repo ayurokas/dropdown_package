@@ -30,23 +30,23 @@ function CustomDropdown(_ref) {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-  const toggleDropdown = (0, _react.useCallback)(() => {
-    setIsOpen(prevIsOpen => !prevIsOpen);
-  }, []);
-  const handleOptionClick = (0, _react.useCallback)(option => {
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+  const handleOptionClick = option => {
     setSelectedOption(option);
     setIsOpen(false);
     setSearchTerm('');
     if (onChange) {
       onChange(option);
     }
-  }, [onChange]);
-  const filterOptions = (0, _react.useCallback)(() => {
+  };
+  const filterOptions = () => {
     if (!searchTerm) {
       return options;
     }
     return options.filter(option => option.label.toLowerCase().startsWith(searchTerm.toLowerCase()));
-  }, [options, searchTerm]);
+  };
   const filteredOptions = filterOptions();
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "custom-dropdown",
