@@ -64,8 +64,8 @@ function CustomDropdown(_ref) {
     onChange: e => setSearchTerm(e.target.value)
   }), /*#__PURE__*/_react.default.createElement("ul", {
     className: "dropdown-options"
-  }, filteredOptions.map(option => /*#__PURE__*/_react.default.createElement("li", {
-    key: option.value,
+  }, filteredOptions.map((option, index) => /*#__PURE__*/_react.default.createElement("li", {
+    key: option.value || index,
     onClick: () => handleOptionClick(option),
     className: "dropdown-option"
   }, option.label)))));

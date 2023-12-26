@@ -57,10 +57,10 @@ function CustomDropdown({ options, onChange, placeholder }) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <ul className="dropdown-options">
-            {filteredOptions.map((option) => (
+          <ul className="dropdown-options" >
+            {filteredOptions.map((option, index) => (
               <li
-                key={option.value}
+                key={option.value || index}
                 onClick={() => handleOptionClick(option)}
                 className="dropdown-option"
               >
