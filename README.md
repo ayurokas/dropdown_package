@@ -23,7 +23,7 @@ Voici un exemple d'utilisation du composant CustomDropdown :
 
 ```jsx
 import React, { useState } from 'react';
-import CustomDropdown from '[chemin-vers-CustomDropdown]';
+import CustomDropdown from "@ayurokas/dropdown_package"
 
 const App = () => {
   const [selectedOption, setSelectedOption] = useState(null);
