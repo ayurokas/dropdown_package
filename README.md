@@ -1,69 +1,70 @@
-__CustomDropdown pour React__
+# Getting Started with Create React App
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Ce package fournit un composant CustomDropdown personnalisable pour les applications React. Il permet de sélectionner une option parmi les options fournies, avec la possibilité de rechercher une option spécifique.
+## Available Scripts
 
+In the project directory, you can run:
 
-__INSTALLATION__
+### `npm start`
 
-Pour installer ce composant, exécutez la commande suivante dans votre projet React :
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-npm install @ayurokas/dropdown_package
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-__UTILISATION__
+### `npm test`
 
-Pour utiliser CustomDropdown dans votre projet, importez d'abord le composant :
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```jsx
-import CustomDropdown from "@ayurokas/dropdown_package"
-```
-Voici un exemple d'utilisation du composant CustomDropdown :
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```jsx
-import React, { useState } from 'react';
-import CustomDropdown from '[chemin-vers-CustomDropdown]';
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-const App = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+### `npm run eject`
 
-  const options = [
-    { label: 'Option 1', value: 1 },
-    { label: 'Option 2', value: 2 },
-    { label: 'Option 3', value: 3 }
-  ];
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-  const handleChange = (option) => {
-    setSelectedOption(option);
-  };
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-  return (
-    <CustomDropdown
-      options={options}
-      onChange={handleChange}
-      placeholder="Select an option"
-    />
-  );
-};
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-export default App;
-```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-__PROPS__
+## Learn More
 
-Le composant CustomDropdown accepte les props suivantes :
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-options : Array d'objets représentant les options. Chaque option est un objet avec label et value.
+### Code Splitting
 
-onChange : Fonction appelée lorsque l'option est sélectionnée.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-placeholder : Texte à afficher lorsque aucune option n'est sélectionnée.
+### Analyzing the Bundle Size
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-__PERSONALISATION__
+### Making a Progressive Web App
 
-```JSX
-import '../components/dropdown.css';
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
