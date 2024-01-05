@@ -1,13 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../components/dropdown.css';
 
+/**
+ * Composant de liste déroulante personnalisée.
+ * @param {Object} props - Les propriétés du composant.
+ * @param {Array} props.options - La liste des options de la liste déroulante.
+ * @param {function} props.onChange - La fonction de rappel appelée lorsqu'une option est sélectionnée.
+ * @param {string} props.placeholder - Le texte à afficher lorsque rien n'est sélectionné.
+ */
 function CustomDropdown({ options, onChange, placeholder }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef(null); 
 
   useEffect(() => {
+    /**
+     * Gère les clics en dehors du menu déroulant pour le fermer.
+     * @param {Event} event - L'événement de clic.
+     */
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
@@ -18,10 +29,17 @@ function CustomDropdown({ options, onChange, placeholder }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  /**
+   * Bascule l'état d'ouverture du menu déroulant.
+   */
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+  /**
+   * Gère le clic sur une option de la liste déroulante.
+   * @param {Object} option - L'option sélectionnée.
+   */
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
@@ -31,6 +49,10 @@ function CustomDropdown({ options, onChange, placeholder }) {
     }
   };
 
+  /**
+   * Filtrage des options en fonction du terme de recherche.
+   * @returns {Array} - Les options filtrées.
+   */
   const filterOptions = () => {
     if (!searchTerm) {
       return options;
@@ -41,6 +63,7 @@ function CustomDropdown({ options, onChange, placeholder }) {
     );
   };
 
+  // Affichage des options filtrées
   const filteredOptions = filterOptions();
 
   return (
@@ -57,7 +80,7 @@ function CustomDropdown({ options, onChange, placeholder }) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <ul className="dropdown-options" >
+          <ul className="dropdown-options">
             {filteredOptions.map((option, index) => (
               <li
                 key={option.value || index}
